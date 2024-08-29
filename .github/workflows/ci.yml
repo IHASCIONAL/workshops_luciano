@@ -1,16 +1,24 @@
 name: ci
 
-on: pull_request
+on: push
+
 jobs:
-    test:
-        runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
 
-        steps:
-            - name: primeira CI nossa
-              run: echo hello world
+      - name: Instalar o Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12.5
 
-            - name: O que tem aqui
-              run: echo $(ls)
+      - name: Instalar Poetry
+        run: pip install poetry
+         
+      - name: Instalar dependências
+        run: poetry install
 
-            - name: qual diretorio
-              run: echo $(pwd)
+      - name: Rodar rotina de testes
+        run: poetry run pytest 00_projeto_e_processos_de_dados/tests/test_contrato.py
