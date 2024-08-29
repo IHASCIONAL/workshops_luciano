@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "workshops_luciano"
+name = "workshops-luciano"
 version = "0.1.0"
 description = ""
 authors = ["Ismael <ismaelhenriqueeu@gmail.com>"]
