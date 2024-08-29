@@ -6,9 +6,22 @@ authors = ["Ismael <ismaelhenriqueeu@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.12.1"
+python = "3.12.5"
+email-validator = "^2.2.0"
+taskipy = "^1.13.0"
+pydantic = "^2.8.2"
+streamlit = "^1.38.0"
+pandas = "^2.2.2"
+pytest = "^8.3.2"
+selenium = "^4.24.0"
+openpyxl = "^3.1.5"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.taskipy.tasks]
+run = "streamlit run src/app.py"
+test = "pytest tests -v"
