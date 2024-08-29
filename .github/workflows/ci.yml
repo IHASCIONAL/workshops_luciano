@@ -11,12 +11,20 @@ jobs:
 
     steps:
       - name: Baixar o repositório
-        uses: actions/checkout@v4  # Corrected line: use 'uses' instead of 'run'
+        uses: actions/checkout@v4
 
       - name: Instalar o Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: qual diretorio
-        run: echo $(pwd)
+      - name: Instalar Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          export PATH="$HOME/.local/bin:$PATH"
+        
+      - name: Instalar dependências
+        run: poetry install
+
+      - name: Rodar rotina de testes
+        run: poetry run pytest 00_projeto_e_processos_de_dados/tests/test_contrato.py
