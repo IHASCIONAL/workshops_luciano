@@ -16,7 +16,6 @@ pytest = "^8.3.2"
 selenium = "^4.24.0"
 openpyxl = "^3.1.5"
 python-dotenv = "^1.0.1"
-psycopg2 = "^2.9.9"
 sqlalchemy = "^2.0.32"
 psycopg2-binary = "^2.9.9"
 
